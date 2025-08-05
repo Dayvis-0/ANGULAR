@@ -1,0 +1,31 @@
+import { Component, EventEmitter, Input, Output} from '@angular/core';
+
+@Component({
+  selector: 'app-games',
+  imports: [],
+  templateUrl: './games.html',
+  styles: ``
+})
+export class Games {
+  @Input() username = '';
+  @Output() addFavoriteEvent = new EventEmitter<string>();
+
+  games = [
+    {
+      id: 1,
+      name: 'Uncharted 4'
+    },
+    {
+      id: 2,
+      name: 'Horizon Zero Dawn'
+    },
+    {
+      id: 3,
+      name: 'Bloodborne'
+    }
+  ]
+
+  fav(gameName: string) {
+    this.addFavoriteEvent.emit(gameName);
+  }
+}
